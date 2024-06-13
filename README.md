@@ -37,8 +37,8 @@ src/
 │   │   └── user.module.ts
 │   ├── order/
 │   │   ├── models/
-│   │   │   └── order.model.ts
 │   │   ├── services/
+│   │   │   └── order.model.ts
 │   │   │   └── order.service.ts
 │   │   ├── components/
 │   │   │   ├── order-list/
@@ -71,7 +71,7 @@ Run angular cli in your angular project. **"Order module"** for example generate
 ng generate library order-library
 ```
 
-Then move all files from `src/app/order` into `projects/order-library/src/lib`
+Then move all files from `src/app/order` into `projects/order-library/src/lib`.
 ```text
 ├── order/
 │    ├── models/
@@ -106,5 +106,7 @@ projects/
 │   │   │   ├── order-routing.module.ts
 │   │   └── public-api.ts
 ```
+
+Configure and export features in `projects/order-library/src/public-api.ts` (Include Component/Service/Module). Complete the library module and build it with `ng build order-library`. The artifact will archived in `dist/` folder.
 1. Deploy NPM server
 2. Import and Integrate library
