@@ -107,6 +107,11 @@ projects/
 │   │   └── public-api.ts
 ```
 
-Configure and export features in `projects/order-library/src/public-api.ts` (Include Component/Service/Module). Complete the library module and build it with `ng build order-library`. The artifact will archived in `dist/` folder.
-1. Deploy NPM server
-2. Import and Integrate library
+Configure and export features in `projects/order-library/src/public-api.ts` (Include Component/Service/Module). Complete the library module and build it with `ng build order-library`. The artifact will archived in `dist/order-library` folder.
+3. Deploy NPM server
+Configure the **npm server** in `.npmrc`. And push to deploy the library.
+```shell
+cd dist/order-library
+npm publish
+```
+4. Import and Integrate library
