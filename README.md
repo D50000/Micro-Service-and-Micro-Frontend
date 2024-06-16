@@ -108,10 +108,57 @@ projects/
 ```
 
 Configure and export features in `projects/order-library/src/public-api.ts` (Include Component/Service/Module). Complete the library module and build it with `ng build order-library`. The artifact will archived in `dist/order-library` folder.
+
 3. Deploy NPM server
 Configure the **npm server** in `.npmrc`. And push to deploy the library.
 ```shell
 cd dist/order-library
 npm publish
 ```
+
 4. Import and Integrate library
+Install the **order-library** with command `npm install order-library`. And setup it in the app.module.ts.
+```ts
+import { OrderModule } from 'order-library';
+
+@NgModule({
+  declarations: [AppComponent],
+  imports: [
+    BrowserModule,
+    OrderModule // Add in import property.
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+
+Use the component:
+```html
+<h1>My App</h1>
+<order-list></order-list> <!-- order list component in order-library -->
+```
+
+Use the service:
+```ts
+import { Component, OnInit } from '@angular/core';
+import { OrderService } from 'order-library'; // Import the order.service
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html'
+})
+export class AppComponent implements OnInit {
+  orders: any[] = [];
+
+  constructor(private orderService: OrderService) {} // Inject the service
+
+  ngOnInit() {
+    // Invoke the api data by rx.js
+    // getOrders() is declare in the order-library. And implement in it's service.
+    this.orderService.getOrders().subscribe(data => {
+      this.orders = data;
+    });
+  }
+}
+```
