@@ -2,14 +2,15 @@
 
 ## Micro-service Architecture
 
-1. Technology Stack
+1. Technology Stack  
 - **Service Language:** Java Spring Boot
 - **Database:** PostgreSQL or MongoDB
-- **Message Queue:** Kafka or RabbitMQ
+- **Message Queue:** Kafka or RabbitMQ (For Support Long Job API)
 - **Service Discovery:** Eureka or Consul
 - **API Gateway:** Spring Cloud Gateway or Netflix Zuul
 - **Monitor and Logs:** Prometheus + Grafana，ELK（Elasticsearch, Logstash, Kibana）
-2. 
+2. [API Service](https://github.com/D50000/Micro-Service-and-Micro-Frontend/blob/main/Micro-service%20Architecture/README.md)  
+Implement with Restful and integrate with MQ structure.
 
 ## Micro-frontend Architecture
 
