@@ -3,12 +3,12 @@
 ## Micro-service Architecture
 
 1. Technology Stack
-- Service Language: Spring Boot
-- Database:PostgreSQL or MongoDB
-- Message Queue: Kafka or RabbitMQ
-- Service Discovery: Eureka or Consul
-- API Gateway: Spring Cloud Gateway or Netflix Zuul
-- Monitor and Logs: Prometheus + Grafana，ELK（Elasticsearch, Logstash, Kibana）
+- **Service Language:** Java Spring Boot
+- **Database:** PostgreSQL or MongoDB
+- **Message Queue:** Kafka or RabbitMQ
+- **Service Discovery:** Eureka or Consul
+- **API Gateway:** Spring Cloud Gateway or Netflix Zuul
+- **Monitor and Logs:** Prometheus + Grafana，ELK（Elasticsearch, Logstash, Kibana）
 2. 
 
 ## Micro-frontend Architecture
