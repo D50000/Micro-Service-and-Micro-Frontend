@@ -2,19 +2,25 @@
 
 ## Micro-service Architecture
 
-1. Technology Stack  
+#### 1. Technology Stack
+
 - **Service Language:** Java Spring Boot
 - **Database:** PostgreSQL or MongoDB
 - **Message Queue:** Kafka or RabbitMQ (For Support Long Job API)
 - **Service Discovery:** Eureka or Consul
 - **API Gateway:** Spring Cloud Gateway or Netflix Zuul
-- **Monitor and Logs:** Prometheus + Grafana，ELK（Elasticsearch, Logstash, Kibana）
-2. [API Service](https://github.com/D50000/Micro-Service-and-Micro-Frontend/blob/main/Micro-service%20Architecture/README.md)  
-Implement with Restful and integrate with MQ structure.
+- **Monitor and Logs:** Kibana with Elasticsearch, Logstash (ELK) or Grafana + Prometheus
+
+#### 2. [API Service Implement](https://github.com/D50000/Micro-Service-and-Micro-Frontend/blob/main/Micro-service%20Architecture/README.md) with Restful and integrate with MQ structure.
+
+#### 3. Setup up service discovery and api gateway.
+
+#### 4. Collect log data with ELK tool,
 
 ## Micro-frontend Architecture
 
-1. Develop frontend project using Angular framework with **Domain Driven Design structure (DDD)**.
+#### 1. Develop frontend project using Angular framework with **Domain Driven Design structure (DDD)**.
+
 ```text
 # Project structure example:
 src/
@@ -75,13 +81,16 @@ src/
 │       └── inventory.module.ts
 ```
 
-2. Build and Packaging
+#### 2. Build and Packaging
+
 Run angular cli in your angular project. **"Order module"** for example generate library for it.
+
 ```shell
 ng generate library order-library
 ```
 
 Then move all files from `src/app/order` into `projects/order-library/src/lib`.
+
 ```text
 ├── order/
 │    ├── models/
@@ -119,44 +128,51 @@ projects/
 
 Configure and export features in `projects/order-library/src/public-api.ts` (Include Component/Service/Module). Complete the library module and build it with `ng build order-library`. The artifact will archived in `dist/order-library` folder.
 
-3. Deploy NPM server
+#### 3. Deploy NPM server
+
 Configure the **npm server** in `.npmrc`. And push to deploy the library.
+
 ```shell
 cd dist/order-library
 npm publish
 ```
 
-4. Import and Integrate library
+#### 4. Import and Integrate library
+
 Install the **order-library** with command `npm install order-library`. And setup it in the app.module.ts.
+
 ```ts
-import { OrderModule } from 'order-library';
+import { OrderModule } from "order-library";
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    OrderModule // Add in import property.
+    OrderModule, // Add in import property.
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
 ```
 
 Use the component:
+
 ```html
 <h1>My App</h1>
-<order-list></order-list> <!-- order list component in order-library -->
+<order-list></order-list>
+<!-- order list component in order-library -->
 ```
 
 Use the service:
+
 ```ts
-import { Component, OnInit } from '@angular/core';
-import { OrderService } from 'order-library'; // Import the order.service
+import { Component, OnInit } from "@angular/core";
+import { OrderService } from "order-library"; // Import the order.service
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html'
+  selector: "app-root",
+  templateUrl: "./app.component.html",
 })
 export class AppComponent implements OnInit {
   orders: any[] = [];
@@ -166,7 +182,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     // Invoke the api data by rx.js
     // getOrders() is declare in the order-library. And implement in it's service.
-    this.orderService.getOrders().subscribe(data => {
+    this.orderService.getOrders().subscribe((data) => {
       this.orders = data;
     });
   }
