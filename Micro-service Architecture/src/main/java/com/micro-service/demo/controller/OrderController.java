@@ -69,6 +69,7 @@ public class OrderController {
     public ResponseEntity<Void> deleteOrder(@PathVariable Long id) {
         return orderRepository.findById(id)
                 .map(order -> {
+                    // Set order delete msg into queue.
                     rabbitTemplate.convertAndSend("orderQueue", order);
                     orderRepository.delete(order);
                     return ResponseEntity.ok().build();
