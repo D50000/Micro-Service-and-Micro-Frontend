@@ -7,13 +7,14 @@
 - **Service Language:** Java Spring Boot
 - **Database:** PostgreSQL or MongoDB
 - **Message Queue:** Kafka or RabbitMQ (For Support Long Job API)
-- **Service Discovery:** Eureka or Consul
-- **API Gateway:** Spring Cloud Gateway or Netflix Zuul
+- **Service Discovery:** [Nacos](https://github.com/alibaba/nacos/wiki), [Eureka](https://github.com/Netflix/eureka/wiki), [Consul](https://github.com/hashicorp/consul), [Zookeeper](https://github.com/apache/zookeeper).
+- **API Gateway:** [Spring Cloud Gateway](https://github.com/spring-cloud/spring-cloud-gateway), [Kong](https://github.com/qianyugang/kong-docs-cn), [Netflix Zuul](https://github.com/Netflix/zuul/wiki)
 - **Monitor and Logs:** Kibana with Elasticsearch, Logstash (ELK) or Grafana + Prometheus
 
 #### 2. [API Service Implement](https://github.com/D50000/Micro-Service-and-Micro-Frontend/blob/main/Micro-service%20Architecture/README.md) with Restful and integrate with MQ structure.
 
 #### 3. Setup up service discovery and api gateway.
+Install **Consul** for service discovery and **Spring Cloud Gateway** for api gateway into `pom.xml`.And setup the configuration according to the official guideline.
 
 #### 4. Collect log data with ELK tool,
 
