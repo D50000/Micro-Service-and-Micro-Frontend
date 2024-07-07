@@ -20,4 +20,9 @@
         <artifactId>h2</artifactId>
         <scope>runtime</scope>
     </dependency>
+    <!-- Eureka Setup -->
+    <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+    </dependency>
 </dependencies>

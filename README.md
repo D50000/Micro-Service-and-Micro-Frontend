@@ -14,7 +14,7 @@
 #### 2. [API Service Implement](https://github.com/D50000/Micro-Service-and-Micro-Frontend/blob/main/Micro-service%20Architecture/README.md) with Restful and integrate with MQ structure.
 
 #### 3. Setup up service discovery and api gateway.
-Install **Consul** for service discovery and **Spring Cloud Gateway** for api gateway into `pom.xml`.And setup the configuration according to the official guideline.
+Install **Eureka** for service discovery and **Spring Cloud Gateway** for api gateway into `pom.xml`.And setup the configuration according to the official guideline.
 
 #### 4. Collect log data with ELK tool,
 
