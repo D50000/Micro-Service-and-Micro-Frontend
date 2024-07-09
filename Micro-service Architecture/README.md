@@ -5,7 +5,7 @@
 - **Message Queue**: Support hight concurrency and asynchronous request.
 - **WebSockets**: Provide realtime data and low latency data.
 - **Hybrid**: Combine above data flow will be ↓↓↓↓↓↓↓↓
-```sql
+```text
 +------------------+    +------------------+    +------------------+    +------------------+
 |    RESTful API   |    |   Message Queue  |    |    WebSocket     |    |     GraphQL      |
 |    (HTTP/HTTPS)  |    |    (MQ System)   |    |   (Real-Time)    |    |   (Non-Relation) |
